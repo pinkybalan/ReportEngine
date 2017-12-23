@@ -1,11 +1,12 @@
 package services;
 
-import java.time.LocalDate;
+import java.time.DayOfWeek;
+import java.util.Set;
 
 /**
  * @author Priya Balan
  *
  */
 public interface IWorkingDays {
-	LocalDate findSettlementWorkingDate(LocalDate settlementDate);
+	Set<DayOfWeek> getWorkingDays();
 }

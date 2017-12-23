@@ -7,6 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,12 +27,34 @@ public class SettlementDateCalculatorTest {
 	public void setUp() {
 		calculator = new SettlementDateCalculator();
 	}
+	
+	@Test
+	public void calculateDates() throws Exception {
+		Set<ReportInput> inputSet = new HashSet<ReportInput>();
+		
+		inputSet.add(new ReportInput("Foo", "B", BigDecimal.valueOf(0.50), "SGP", LocalDate.of(2017, 12, 12),
+				LocalDate.of(2017, 12, 18), 200, BigDecimal.valueOf(100.25)));
+		inputSet.add(new ReportInput("Bar", "S", BigDecimal.valueOf(0.22), "AED", LocalDate.of(2017, 12, 12),
+				LocalDate.of(2017, 12, 15), 100, BigDecimal.valueOf(100.0)));
+		
+		calculator.calculateDates(inputSet);
+		
+		final LocalDate testDate1 = LocalDate.of(2017, 12, 18);
+		final LocalDate testDate2 = LocalDate.of(2017, 12, 17);
+		inputSet.forEach(s -> {
+			if(s.getCurrency().equals("SGP")) 
+				assertEquals(testDate1,s.getSettlementDate());
+			else
+				assertEquals(testDate2,s.getSettlementDate());
+		});
+		
+	}
 
 	@Test
 	public void calculateDate_ArabWorkingDay() throws Exception {
 		// date is SUNDAY
 		final LocalDate actualDate = LocalDate.of(2017, 12, 17);
-		final ReportInput inputSet = new ReportInput("Foo", "B", BigDecimal.valueOf(0.50), "AED",
+		final ReportInput inputSet = new ReportInput("Foo", "B", BigDecimal.valueOf(0.50), "SAR",
 				LocalDate.of(2016, 1, 1), LocalDate.of(2017, 12, 17), 200, BigDecimal.valueOf(100.25));
 
 		// calculate the settlement date
@@ -85,4 +109,5 @@ public class SettlementDateCalculatorTest {
 		assertEquals(actualDate, inputSet.getSettlementDate());
 
 	}
+	
 }

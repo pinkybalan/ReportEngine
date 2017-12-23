@@ -12,7 +12,7 @@ public class ReportInput {
 	private String entity;
 	
 	private String tradeAction;
-	
+
 	private BigDecimal agreedFx;
 	
 	private String currency;	
@@ -56,41 +56,15 @@ public class ReportInput {
 		return entity;
 	}
 
-	/**
-	 * @param entity the entity to set
-	 */
-	public void setEntity(String entity) {
-		this.entity = entity;
-	}
-
-	/**
-	 * @return the agreedFx
-	 */
-	public BigDecimal getAgreedFx() {
-		return agreedFx;
-	}
-
-	/**
-	 * @param agreedFx the agreedFx to set
-	 */
-	public void setAgreedFx(BigDecimal agreedFx) {
-		this.agreedFx = agreedFx;
-	}
-
+	
+	
 	/**
 	 * @return the currency
 	 */
 	public String getCurrency() {
 		return currency;
 	}
-
-	/**
-	 * @param currency the currency to set
-	 */
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
-
+	
 	/**
 	 * @return the instructionDate
 	 */
@@ -98,13 +72,7 @@ public class ReportInput {
 		return instructionDate;
 	}
 
-	/**
-	 * @param instructionDate the instructionDate to set
-	 */
-	public void setInstructionDate(LocalDate instructionDate) {
-		this.instructionDate = instructionDate;
-	}
-
+	
 	/**
 	 * @return the settlementDate
 	 */
@@ -118,6 +86,23 @@ public class ReportInput {
 	public void setSettlementDate(LocalDate settlementDate) {
 		this.settlementDate = settlementDate;
 	}
+	
+	/**
+	 * @return the tradeAction
+	 */
+	public String getTradeAction() {
+		return tradeAction;
+	}
+
+	
+	
+	/**
+	 * @return the agreedFx
+	 */
+	public BigDecimal getAgreedFx() {
+		return agreedFx;
+	}
+
 
 	/**
 	 * @return the units
@@ -126,12 +111,6 @@ public class ReportInput {
 		return units;
 	}
 
-	/**
-	 * @param units the units to set
-	 */
-	public void setUnits(int units) {
-		this.units = units;
-	}
 
 	/**
 	 * @return the pricePerUnit
@@ -140,26 +119,6 @@ public class ReportInput {
 		return pricePerUnit;
 	}
 
-	/**
-	 * @param pricePerUnit the pricePerUnit to set
-	 */
-	public void setPricePerUnit(BigDecimal pricePerUnit) {
-		this.pricePerUnit = pricePerUnit;
-	}
-
-	/**
-	 * @return the tradeAction
-	 */
-	public String getTradeAction() {
-		return tradeAction;
-	}
-
-	/**
-	 * @param tradeAction the tradeAction to set
-	 */
-	public void setTradeAction(String tradeAction) {
-		this.tradeAction = tradeAction;
-	}
 
 	/**
 	 * @return the tradeAmount

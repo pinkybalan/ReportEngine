@@ -79,13 +79,7 @@ public class GenerateReportImpl implements IGenerateReport {
 		System.out.println("\n\n===============================\n   Outgoing Ranking Report \n===============================\n");
 		System.out.println("SettlementDate\tEntity\tRanking\n-------------------------------");
 		
-		outgoingRankingMap.entrySet().stream()
-									 .forEach(e-> {
-										 e.getValue().entrySet().stream()
-										 .forEach(r-> {
-											 System.out.println(e.getKey()+"\t"+r.getKey()+"\t"+r.getValue());
-										 });
-								 });
+		printRankingReport(outgoingRankingMap);
 		System.out.println("-------------------------------");
 		
 	}
@@ -100,13 +94,20 @@ public class GenerateReportImpl implements IGenerateReport {
 		System.out.println("\n\n===============================\n   Incoming Ranking Report \n===============================\n");
 		System.out.println("SettlementDate\tEntity\tRanking\n-------------------------------");
 		
-		incomingRankingMap.entrySet().stream()
+		printRankingReport(incomingRankingMap);
+		System.out.println("-------------------------------");
+	}
+
+	/**
+	 * @param rankingMap
+	 */
+	private void printRankingReport(Map<LocalDate, Map<String, Integer>> rankingMap) {
+		rankingMap.entrySet().stream()
 									 .forEach(e -> {
 										     e.getValue().entrySet().stream()
 										     .forEach(r-> {
 												 System.out.println(e.getKey()+"\t"+r.getKey()+"\t"+r.getValue());
 											 });
 									 });
-		System.out.println("-------------------------------");
 	}
 }
