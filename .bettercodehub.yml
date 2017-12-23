@@ -1,0 +1,5 @@
+exclude:
+- /src/main/java/utils/ReportInputGenerator.java
+component_depth: 4
+languages:
+- java
