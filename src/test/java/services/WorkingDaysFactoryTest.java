@@ -14,6 +14,13 @@ import org.junit.Test;
 public class WorkingDaysFactoryTest {
 
 	@Test
+	public void getWorkingDaysFactoryInstance() throws Exception {
+	
+		// checks if the returned instance is the factory instance
+		assertTrue(new WorkingDaysFactory() instanceof WorkingDaysFactory);
+	}
+	
+	@Test
 	public void getWorkingDaysInstance_ArabCurrency() throws Exception {
 		String currency = "AED";
 
