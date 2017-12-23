@@ -44,9 +44,9 @@
 				<version>0.7.6.201602180812</version>
 				<configuration>
 					<excludes>
-						<exclude>**/ReportMain.java</exclude>						
-						<exclude>**/GenerateReportImpl.java</exclude>
-						<exclude>**/ReportInputGenerator.java</exclude>
+						<exclude>**/*ReportMain.*</exclude>						
+						<exclude>**/*GenerateReportImpl.*</exclude>
+						<exclude>**/*ReportInputGenerator.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>
