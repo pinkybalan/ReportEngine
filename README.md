@@ -7,7 +7,7 @@
 # ReportEngine
 Generates trade amount and ranking reports for the given instructions.
 
-Requirement:
+# Requirement:
 
 Need to generate report that shows
 1.	Trade amount settled outgoing everyday.
@@ -15,7 +15,7 @@ Need to generate report that shows
 3.	Ranking of entities based on incoming.
 4.	Ranking of entities based on outgoing.
 
-Instruction:
+# Instruction:
 1.	Entity – A financial entity whose shares are bought or sold
 2.	Trade Action (Buy/Sell) 
   	B – Buy – Outgoing
@@ -28,9 +28,9 @@ Instruction:
 8.	Price per unit – Price per unit for each entity
 9.	Trade amount in USD = Price/Unit * units * Agreed Fx
 
-Design:
+# Design:
 
-Settlement Date Calculation:
+# Settlement Date Calculation:
 1.	Based on the currency the working days need to be considered.               
 Arabian Country Working days: 
 Sunday, Monday, Tuesday, Wednesday, Thursday
@@ -41,7 +41,7 @@ Monday, Tuesday, Wednesday, Thursday, Friday
 4.	SettlementDateCalculator is the class which handles these operations and finds the correct settlement date.
 5.	Once settlement date is calculated we can proceed to calculate the details required for generating reports.
 
-Report Calculation:
+# Report Calculation:
 1.	Calculate daily trade amount based on incoming and outgoing instructions.
 With the given set of inputs first need to filter for incoming(S) and    outgoing (B) and then group by settlement date and sum all the trade amounts. This will give us a mapping of Settlement date and trade amount for both incoming and outgoing separately.
 2.	Calculate entity ranking based on incoming and outgoing instructions.
@@ -49,11 +49,11 @@ With the given set of inputs first need to filter for incoming(S) and outgoing (
 3.	ReportCalculator is the class which handles these operations.
 4.	Data’s are ready for generating daily trade amount report and ranking report.
 
-Generate Reports:
+# Generate Reports:
 GenerateReportImpl class generates the report from the calculated details.
 
-Output:
-In order to show the output generated some dummy inputs in ReportInputGenerator class.
+# Output:
+In order to show the output generated some dummy inputs are provided in ReportInputGenerator class.
 
-Testing:
+# Testing:
 Have written junit test classes for every functionality.
