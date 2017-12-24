@@ -37,7 +37,7 @@ Sunday, Monday, Tuesday, Wednesday, Thursday
 * **Other Country Working days:**
 Monday, Tuesday, Wednesday, Thursday, Friday
 2.	Instruction settlement date must be verified whether it is a working day or not. If it is a working day can retain the same date and if not a working day then need to find the next working date for settlement date.
-3.	For this had a separate implementation class for different country working days, which gives us the list of working days. Used a Factory class to get the instance for particular implementation class. This pattern will be useful if in future there need to be add a new set of working days for another country. 
+3.	For this had a separate implementation class for different country working days, which gives us the list of working days. Used a Factory class to get the instance for particular implementation class. This pattern will be useful if in future there need to be add a new set of working days for another country or any country specific functionalites need to be added. 
 4.	**SettlementDateCalculator** is the class which handles these operations and finds the correct settlement date.
 5.	Once settlement date is calculated we can proceed to calculate the details required for generating reports.
 
@@ -53,4 +53,4 @@ With the given set of inputs first need to filter for incoming(S) and outgoing (
 For displaying the calculated data in the report format, **GenerateReportImpl** class generates the report from the calculated details.
 
 ## Output:
-In order to show the output generated some dummy inputs are provided in **ReportInputGenerator** class.
+In order to show the output generated, some dummy inputs are provided in **ReportInputGenerator** class.
