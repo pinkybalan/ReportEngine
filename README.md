@@ -30,30 +30,27 @@ Need to generate report that shows
 
 # Design:
 
-# Settlement Date Calculation:
+## Settlement Date Calculation:
 1.	Based on the currency the working days need to be considered.               
-Arabian Country Working days: 
+**Arabian Country Working days:**
 Sunday, Monday, Tuesday, Wednesday, Thursday
-Other Country Working days:
+**Other Country Working days:**
 Monday, Tuesday, Wednesday, Thursday, Friday
 2.	Instruction settlement date must be verified whether it is a working day or not. If it is a working day can retain the same date and if not a working day then need to find the next working date for settlement date.
 3.	For this had a separate implementation class for different country working days, which gives us the list of working days. Used a Factory class to get the instance for particular implementation class. This pattern will be useful if in future there need to be add a new set of working days for another country. 
-4.	SettlementDateCalculator is the class which handles these operations and finds the correct settlement date.
+4.	**SettlementDateCalculator** is the class which handles these operations and finds the correct settlement date.
 5.	Once settlement date is calculated we can proceed to calculate the details required for generating reports.
 
-# Report Calculation:
+## Report Calculation:
 1.	Calculate daily trade amount based on incoming and outgoing instructions.
 With the given set of inputs first need to filter for incoming(S) and    outgoing (B) and then group by settlement date and sum all the trade amounts. This will give us a mapping of Settlement date and trade amount for both incoming and outgoing separately.
 2.	Calculate entity ranking based on incoming and outgoing instructions.
 With the given set of inputs first need to filter for incoming(S) and outgoing (B) and then group by settlement date and map to entity, trade amount. Then for each date sort the trade amount and assign ranking to entities. The entity with highest trade amount will be ranked 1 and continued. The entity with same amount will be given same ranking.  
-3.	ReportCalculator is the class which handles these operations.
+3.	**ReportCalculator** is the class which handles these operations.
 4.	Data’s are ready for generating daily trade amount report and ranking report.
 
-# Generate Reports:
-GenerateReportImpl class generates the report from the calculated details.
+## Generate Reports:
+For displaying the calculated data in the report format, **GenerateReportImpl** class generates the report from the calculated details.
 
-# Output:
-In order to show the output generated some dummy inputs are provided in ReportInputGenerator class.
-
-# Testing:
-Have written junit test classes for every functionality.
+## Output:
+In order to show the output generated some dummy inputs are provided in **ReportInputGenerator** class.
