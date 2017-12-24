@@ -32,9 +32,9 @@ Need to generate report that shows
 
 ## Settlement Date Calculation:
 1.	Based on the currency the working days need to be considered.               
-**Arabian Country Working days:**
+* **Arabian Country Working days:**
 Sunday, Monday, Tuesday, Wednesday, Thursday
-**Other Country Working days:**
+* **Other Country Working days:**
 Monday, Tuesday, Wednesday, Thursday, Friday
 2.	Instruction settlement date must be verified whether it is a working day or not. If it is a working day can retain the same date and if not a working day then need to find the next working date for settlement date.
 3.	For this had a separate implementation class for different country working days, which gives us the list of working days. Used a Factory class to get the instance for particular implementation class. This pattern will be useful if in future there need to be add a new set of working days for another country. 
